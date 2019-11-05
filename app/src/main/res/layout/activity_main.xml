@@ -14,5 +14,14 @@
         android:textSize="80dp"
         android:id="@+id/btnChange"
         android:background="#0000ff"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:textSize="80dp"
+        android:id="@+id/btnChange2"
+        android:background="#ff0000"
+        android:layout_below="@+id/btnChange"
+        android:layout_marginTop="50dp"/>
 
 </RelativeLayout>

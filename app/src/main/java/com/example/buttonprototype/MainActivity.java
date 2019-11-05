@@ -14,34 +14,36 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private RelativeLayout pRelLayout;
-    private Button btnChange;
+    private Button btnChange, btnChange2;
     private Random rnd;
-    private int seged = 10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
         (new Thread(new Runprototype())).start();
+        (new Thread(new Runprototype2())).start();
 
     }
     public void init()
     {
         pRelLayout = findViewById(R.id.pRelLayout);
         btnChange = findViewById(R.id.btnChange);
+        btnChange2 = findViewById(R.id.btnChange2);
     }
-    public void handler()
+    public void handler(Button change)
     {
+        int seged = 40;
         while (seged != 0) {
-            btnChange.setBackgroundColor(Color.rgb(255,0,0));
+            change.setBackgroundColor(Color.rgb(255,0,0));
             try {
-                Thread.sleep(5000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            btnChange.setBackgroundColor(Color.rgb(0,255,0));
+            change.setBackgroundColor(Color.rgb(0,255,0));
             try {
-                Thread.sleep(5000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -51,8 +53,14 @@ public class MainActivity extends AppCompatActivity {
     public class Runprototype implements Runnable
     {
         public void run() {
-            handler();
-        }
+            handler(btnChange);
+        };
     }
-
+    public class Runprototype2 implements Runnable
+    {
+        public void run() {
+            handler(btnChange2);
+        };
+    }
 }
+
